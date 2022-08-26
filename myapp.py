@@ -25,14 +25,11 @@ st.write("# Stock Price Trend App")
 st.write("""## Enter Stock Ticker Symbol
 (ex. AAPL, GOOGL, ES=F)""")
 
-# https://towardsdatascience.com/how-to-get-stock-data-using-python-c0de1df17e75
-#define the ticker symbol
+
 tickerSymbol = st.text_input(" ",'GOOGL')
-#get data on this ticker
 tickerData = yf.Ticker(tickerSymbol)
-#get the historical prices for this ticker
 tickerDf = tickerData.history(period='1d', start='2010-5-31', end=d)
-# Open	High	Low	Close	Volume	Dividends	Stock Splits
+
 
 st.write("Closing Price")
 st.line_chart(tickerDf.Close)
